@@ -1,9 +1,9 @@
-import { IUpdate } from "../update.h";
+import { IAwake, IUpdate } from '@/utils'
 import { IComponent } from "./component.h";
 
 type constr<T> = { new(...args: unknown[]): T }
 
-export abstract class Entity implements IUpdate {
+export abstract class Entity implements IAwake, IUpdate {
   //create a list of the components on this entity
   protected _components: IComponent[] = []
 
@@ -55,6 +55,12 @@ export abstract class Entity implements IUpdate {
     }
 
     return false
+  }
+
+  public Awake(): void {
+    for(const component of this._components) {
+      component.Awake()
+    }
   }
 
   //Add our tick interface
