@@ -1,15 +1,22 @@
+import { Grid } from "@/grid";
 import { Settings } from "@/settings";
 import { Entity } from "@/utils";
 
 export class Game extends Entity {
-  public Entities: Entity[] = []
-
   //Game writes a new Update method since its responsible for calculating the delta for all other entities
   private _lastTimestamp = 0
+
+  private _entities: Entity[] = []
+
+  public get Entities(): Entity[] {
+    return this._entities
+  }
 
   public Awake(): void {
     //Awakens all Entity subclasses
     super.Awake()
+
+    this._entities.push(new Grid())
 
     //awake all children
     for (const entity of this.Entities) {
