@@ -1,8 +1,9 @@
+import { IUpdate } from "../update.h";
 import { IComponent } from "./component.h";
 
 type constr<T> = { new(...args: unknown[]): T }
 
-export abstract class Entity {
+export abstract class Entity implements IUpdate {
   //create a list of the components on this entity
   protected _components: IComponent[] = []
 
@@ -54,5 +55,12 @@ export abstract class Entity {
     }
 
     return false
+  }
+
+  //Add our tick interface
+  public Update(deltaTime: number): void {
+    for(const component of this._components) {
+      component.Update(deltaTime)
+    }
   }
 }
