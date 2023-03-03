@@ -1,6 +1,7 @@
 import { Color } from "@/utils"
 
 export const Settings = Object.freeze({ //Makes this obj immut.
+  debugMode: true,
   grid: {
     dimension: 6,
     nodeSize: 100,
@@ -11,7 +12,7 @@ export const Settings = Object.freeze({ //Makes this obj immut.
     }
   },
   ships: {
-    fleetSize: 3,
+    fleetSize: 1,
     radius: 40,
     colors: {
       a: new Color(187, 222, 251, 1),
