@@ -1,3 +1,11 @@
+import { Fleet } from "./fleet";
 import { Game } from "./game";
+import { Grid } from "./grid";
+import { Team } from "./team";
 
-new Game().Awake()
+const grid = new Grid()
+new Game(
+  grid,
+  new Fleet(Team.A, grid),
+  new Fleet(Team.B, grid)
+)

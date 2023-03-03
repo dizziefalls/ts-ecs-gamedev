@@ -14,18 +14,18 @@ export class Game extends Entity {
     return this._entities
   }
 
+  constructor(grid: Grid, fleetA: Fleet, fleetB: Fleet) {
+    super()
+
+    this._entities.push(grid, fleetA, fleetB)
+  }
+
   public Awake(): void {
     //Attach components before waking
     this.AddComponent(new GameInputComponent())
+
     //Awakens all Entity subclasses
     super.Awake()
-
-    const grid = new Grid()
-    this._entities.push(
-      grid,
-      new Fleet(Team.A, grid),
-      new Fleet(Team.B, grid)
-      )
 
     //awake all children
     for (const entity of this.Entities) {
