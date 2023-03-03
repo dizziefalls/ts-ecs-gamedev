@@ -1,6 +1,6 @@
 import { mockFleetFactory } from "@/fleet";
 import { mockGridFactory } from "@/grid";
-import { Game } from "./game";
+import { Game } from "@/game";
 import { Team } from "@/team";
 
 export const mockGameFactory = (
