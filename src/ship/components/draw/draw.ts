@@ -8,7 +8,12 @@ export class ShipDrawComponent implements IComponent {
   public Entity: Ship
 
   private get Position(): Vector2D {
-    return new Vector2D(50, 50) // Move to new calc or comp. Center of circle
+    const position = this.Entity.Position
+    if (!position) {
+      throw new Error('Attempted to draw a ship that has no Position')
+    }
+
+    return position
   }
 
   public Awake(): void {

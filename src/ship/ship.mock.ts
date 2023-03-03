@@ -1,6 +1,8 @@
 import { mockFleetFactory } from "@/fleet"
+import { mockNodeFactory } from "@/node"
 import { Ship } from "./ship"
 
 export const mockShipFactory = (
-  fleet = mockFleetFactory()
-): Ship => new Ship(fleet)
+  fleet = mockFleetFactory(),
+  node = mockNodeFactory()
+): Ship => new Ship(fleet, node)

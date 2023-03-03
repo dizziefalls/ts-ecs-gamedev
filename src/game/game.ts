@@ -18,10 +18,11 @@ export class Game extends Entity {
     //Awakens all Entity subclasses
     super.Awake()
 
+    const grid = new Grid()
     this._entities.push(
-      new Grid(),
-      new Fleet(Team.A),
-      new Fleet(Team.B)
+      grid,
+      new Fleet(Team.A, grid),
+      new Fleet(Team.B, grid)
       )
 
     //awake all children
