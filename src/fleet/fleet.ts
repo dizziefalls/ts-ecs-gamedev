@@ -35,5 +35,10 @@ export class Fleet extends Entity {
       this._ships.push(ship)
       ship.Awake()
     }
+
+    // @todo start with state machine. boy i hope he wrote that part...
+    if (this.Team === Team.A) {
+      this._ships[0].IsActive = true
+    }
   }
 }
