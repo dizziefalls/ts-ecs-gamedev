@@ -1,8 +1,8 @@
 import { Fleet } from "@/fleet";
 import { Grid } from "@/grid";
-import { Settings } from "@/settings";
 import { Team } from "@/team";
 import { Entity } from "@/utils";
+import { GameInputComponent } from "./components";
 
 export class Game extends Entity {
   //Game writes a new Update method since its responsible for calculating the delta for all other entities
@@ -15,6 +15,8 @@ export class Game extends Entity {
   }
 
   public Awake(): void {
+    //Attach components before waking
+    this.AddComponent(new GameInputComponent())
     //Awakens all Entity subclasses
     super.Awake()
 

@@ -1,7 +1,9 @@
 import { IAwake, IUpdate } from '@/utils'
 import { IComponent } from "./component.h";
 
-type constr<T> = { new(...args: unknown[]): T }
+type AbstractComponent<T> = Function & { prototype: T }
+
+type constr<T> = AbstractComponent<T> | { new(...args: unknown[]): T }
 
 export abstract class Entity implements IAwake, IUpdate {
   //create a list of the components on this entity
