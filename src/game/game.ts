@@ -1,5 +1,7 @@
+import { Fleet } from "@/fleet";
 import { Grid } from "@/grid";
 import { Settings } from "@/settings";
+import { Team } from "@/team";
 import { Entity } from "@/utils";
 
 export class Game extends Entity {
@@ -16,7 +18,11 @@ export class Game extends Entity {
     //Awakens all Entity subclasses
     super.Awake()
 
-    this._entities.push(new Grid())
+    this._entities.push(
+      new Grid(),
+      new Fleet(Team.A),
+      new Fleet(Team.B)
+      )
 
     //awake all children
     for (const entity of this.Entities) {
